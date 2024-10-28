@@ -29,19 +29,19 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
     // Kontrollerar om den gissade bokstaven finns i det hemliga ordet // Robin
     const validLetters = function(letter) {
         let found = false; 
-       
-        
-
 
         // Loopar igenom det hemliga ordet // Robin
         for (let i = 0; i < secretWord.length; i++) {
             if (secretWord[i] === letter) {
-                displayedWord = displayedWord.split(''); // Konverterar sträng till array
+                displayedWord = displayedWord.split(' '); // Konverterar sträng till array
                 displayedWord[i] = letter; // Uppdaterar bokstaven i arrayen
-                displayedWord = displayedWord.join(''); // Konverterar tillbaka till sträng
+                displayedWord = displayedWord.join(' '); // Konverterar tillbaka till sträng
+                wordLabel.innerText = displayedWord;
                 found = true; // Markerar att bokstaven hittades
             }
         }
+
+       
 
 
         // Om bokstaven inte hittades och den inte redan är i felaktiga bokstäver // Robin
@@ -66,9 +66,13 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
             }
             if (wrongGuesses === 6) {
                 document.getElementById('body').style.display = 'block';
+                alert('You Loose!!')
             }
+           
         }
-
+        else if (!displayedWord.includes('_')) {
+            alert('Congratz, you win!!! 🎉');
+        }
       
 
         // Uppdaterar visningen av ordet och felaktiga bokstäver // Robin
@@ -102,6 +106,11 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
         incorrectLetters = []; // Återställer listan med felaktiga bokstäver
         wordLabel.innerText = displayedWord; // Uppdaterar visningen av ordet
         wrongGuessesDisplay.innerText = ''; // Rensar visningen av felaktiga bokstäver
+        const elements = ['ground', 'head', 'scaffold', 'legs', 'arms', 'body'];
+        elements.forEach (id =>  {
+            document.getElementById(id).style.display = 'none';
+        });
         console.log('Ditt nya ord är:', secretWord); // Loggar det nya hemliga ordet
+
     }
 

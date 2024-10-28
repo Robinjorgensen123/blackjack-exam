@@ -1,5 +1,5 @@
 body {
-    background-color: yellow;
+    background-image: url('1350454.png');
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -49,6 +49,8 @@ input {
 
 #ground {
     display: none;
+    fill: solid red;
+    
 }
 
 #head {
