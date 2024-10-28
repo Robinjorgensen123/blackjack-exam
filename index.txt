@@ -1,0 +1,20 @@
+vad behöver göras?
+
+inmatningsfält för bokstäver/ord// en bokstav i taget!
+
+array med random ord!
+
+array med bokstäver A-Z!
+
+vid fel bokstav ska en del av hänggubben visas!
+rätt ord så ska det stå "du vann", vill du spela igen?
+om man förlorar så skrivs ut " du förlorade, samt det rätta ordet ska visas,
+och vill du spela igen?
+
+alla namn på variabler // functioner ska skrivas på engelska!
+
+
+
+
+en knapp för reset game!
+

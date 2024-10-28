@@ -1,0 +1,49 @@
+body {
+    background-color: yellow;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.game-container {
+    display: flex;
+   justify-content: space-around;
+   align-items: space-around;
+    flex-direction: row;
+    
+}
+
+
+.article__wrapper {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+button {
+    height: 50px;
+    width: 100px;
+    padding: 2px;
+    text-align: center;
+    justify-content: center;
+}
+input {
+    height: 30px;
+    width: 30px;
+}
+#singeLetterInput {
+    text-align: center;
+    font-size: 2rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    
+}
+
+.letterOutput__wrapper {
+    display: flex;
+    flex-direction:row ;
+    justify-content: flex-end;
+    align-items: center;
+    width: 300px;
+
+}
