@@ -6,7 +6,6 @@ body {
 .game-container {
     display: flex;
    justify-content: space-around;
-   align-items: space-around;
     flex-direction: row;
     
 }
@@ -31,7 +30,7 @@ input {
     height: 30px;
     width: 30px;
 }
-#singeLetterInput {
+#singleLetterInput {
     text-align: center;
     font-size: 2rem;
     border: 2px solid black;
@@ -46,4 +45,28 @@ input {
     align-items: center;
     width: 300px;
 
+}
+
+#ground {
+    display: none;
+}
+
+#head {
+    display: none;
+}
+
+#body {
+    display: none;
+}
+
+#arms {
+    display: none;
+}
+
+#legs {
+    display: none;
+}
+
+#scaffold {
+    display: none;
 }

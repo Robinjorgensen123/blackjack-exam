@@ -21,16 +21,20 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
     console.log('Ditt ord är', secretWord);
 
     // Variabler för att spåra antalet fel och felaktiga bokstäver // Robin
-    let wrongGuesses = 0;
+    let wrongGuesses = 0; 
     let incorrectLetters = [];
+    const maxWrongGuesses = 6;
+
  
     // Kontrollerar om den gissade bokstaven finns i det hemliga ordet // Robin
     const validLetters = function(letter) {
-        let found = false; // Flagga för att kolla om bokstaven hittades // Robin
+        let found = false; 
+       
+        
+
 
         // Loopar igenom det hemliga ordet // Robin
         for (let i = 0; i < secretWord.length; i++) {
-            // Om bokstaven finns, uppdatera visningen // Robin
             if (secretWord[i] === letter) {
                 displayedWord = displayedWord.split(''); // Konverterar sträng till array
                 displayedWord[i] = letter; // Uppdaterar bokstaven i arrayen
@@ -39,10 +43,33 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
             }
         }
 
+
         // Om bokstaven inte hittades och den inte redan är i felaktiga bokstäver // Robin
         if (!found && !incorrectLetters.includes(letter)) {
             incorrectLetters.push(letter); // Lägger till felaktig bokstav
+            wrongGuesses++;
+
+            if (wrongGuesses === 1) {
+                document.getElementById('ground').style.display = 'block';
+            }
+            if (wrongGuesses === 2) {
+                document.getElementById('head').style.display = 'block';
+            }
+            if (wrongGuesses === 3) {
+                document.getElementById('scaffold').style.display = 'block';
+            }
+            if (wrongGuesses === 4) {
+                document.getElementById('legs').style.display = 'block';
+            }
+            if (wrongGuesses === 5) {
+                document.getElementById('arms').style.display = 'block';
+            }
+            if (wrongGuesses === 6) {
+                document.getElementById('body').style.display = 'block';
+            }
         }
+
+      
 
         // Uppdaterar visningen av ordet och felaktiga bokstäver // Robin
         wordLabel.innerText = displayedWord;
