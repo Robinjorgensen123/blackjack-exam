@@ -66,7 +66,8 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
             }
             if (wrongGuesses === 6) {
                 document.getElementById('body').style.display = 'block';
-                alert('You Loose!!')
+                letterInput.disabled = true;
+                alert('You Loose!!, the word was: '  + secretWord)
             }
            
         }
@@ -111,6 +112,7 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
             document.getElementById(id).style.display = 'none';
         });
         console.log('Ditt nya ord är:', secretWord); // Loggar det nya hemliga ordet
+        letterInput.disabled = false;
 
     }
 
