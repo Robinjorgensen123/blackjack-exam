@@ -1,12 +1,15 @@
 // Array med alla bokstäver! // Robin
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
+window.onload = function() {
+    hideGameOver();  // Döljer dialogrutan vid sidladdning
+};
 
     // Hämtar DOM-element för användarinput och visning av ord och felaktiga gissningar // Robin
     const letterInput = document.getElementById('singleLetterInput');
     const wordLabel = document.getElementById('wordLabel');
     const wrongGuessesDisplay = document.getElementById('wrongGuessesDisplay');
-
+    
     // Skapar och lagrar ett slumpmässigt valt ord från en extern array // Robin
     let secretWord = getRandomWord();
 
@@ -29,6 +32,7 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
     // Kontrollerar om den gissade bokstaven finns i det hemliga ordet // Robin
     const validLetters = function(letter) {
         let found = false; 
+        
 
         // Loopar igenom det hemliga ordet // Robin
         for (let i = 0; i < secretWord.length; i++) {
@@ -67,14 +71,19 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
             if (wrongGuesses === 6) {
                 document.getElementById('body').style.display = 'block';
                 letterInput.disabled = true;
+                
                 alert('You Loose!!, the word was: '  + secretWord)
             }
-           
-        }
-        else if (!displayedWord.includes('_')) {
+            
+            if (wrongGuesses >= maxWrongGuesses) {
+                document.getElementById('body').style.display = 'block';
+                showGameOver(); // Visa game over-dialog
+                letterInput.disabled = true;
+                
+            }
+        } else if (!displayedWord.includes('_')) {
             alert('Congratz, you win!!! 🎉');
         }
-      
 
         // Uppdaterar visningen av ordet och felaktiga bokstäver // Robin
         wordLabel.innerText = displayedWord;
@@ -113,6 +122,31 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
         });
         console.log('Ditt nya ord är:', secretWord); // Loggar det nya hemliga ordet
         letterInput.disabled = false;
+        hideGameOver(gameOver);
 
     }
 
+
+    function showGameOver() {
+        const gameOverElement = 
+        document.getElementById('gameOver');
+        gameOverElement.style.display = 'flex';
+        console.log("game Over show")
+    }
+    
+    function hideGameOver() {
+        document.getElementById('gameOver').style.display = 'none';
+        
+        console.log("game over hide")
+    }
+
+        document.getElementById('playAgain').addEventListener('click', () => {
+            resetGame();
+            hideGameOver();
+            
+        });
+
+        document.getElementById('exitGame').addEventListener('click', () => {
+            alert('Thanks for playing!');
+
+        });

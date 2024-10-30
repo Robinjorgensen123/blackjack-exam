@@ -14,8 +14,9 @@ body {
 .article__wrapper {
     display: flex;
     margin: 20px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-direction: column;
     
 }
 
@@ -70,5 +71,29 @@ input {
 }
 
 #scaffold {
+    display: none;
+}
+
+#gameOver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+#gameOverContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+#hidden {
     display: none;
 }
